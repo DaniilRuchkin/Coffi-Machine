@@ -11,11 +11,13 @@ class MainMenu
                 "3. Проверить ингредиенты",
                 "4. Проверить / очистить кофемашинку",
                 "5. Посмотреть историю готовки",
+                "6. Добавить профиль",
+                "7. Посмотреть список профилей",
                 "8. Exit"
             };
             while (true)
             {
-                
+                Console.Clear();
                 Console.WriteLine("Меню:");
                 foreach (string option in menuOptions)
                 {
@@ -44,7 +46,15 @@ class MainMenu
                         CheckAndClear.ShowDirty();
                     break;
                     case 5:
+                        Console.Clear();
                         ViewCreatingCoffe.ViewHistoryCoking();
+                    break;
+                    case 6:
+                        Console.Clear();
+                        CreateProfile();
+                    break;
+                    case 7:
+                    ProfileManager.ViewCreatProfiel();
                     break;
                     case 8:
                         Environment.Exit(0);
@@ -56,9 +66,28 @@ class MainMenu
                 }
             }
         }
+        static void CreateProfile()
+        {
+            Console.WriteLine("Введите имя профиля:");
+            string profileName = Console.ReadLine();
+
+            Console.WriteLine("Введите количество воды (мл):");
+            int water = GetUserChoice();
+
+            Console.WriteLine("Введите количество кофе (гр):");
+            int coffe = GetUserChoice();
+
+            Console.WriteLine("Введите количество молока (мл):");
+            int milk = GetUserChoice();
+
+            Console.WriteLine("Введите количество кружек:");
+            int cups = GetUserChoice();
+
+            ProfileManager.CreateProfile(profileName, water, coffe, milk, cups);
+        }
         static public int GetUserChoice()
         {
-            Console.WriteLine("Введите ваш выбор: ");
+            //Console.WriteLine("Введите ваш выбор: ");
             while (true)
             {
                 try

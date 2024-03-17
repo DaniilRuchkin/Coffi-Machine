@@ -69,7 +69,7 @@ class AddMenu
                 Thread.Sleep(1000);
             }
             Console.Clear(); 
-            MainMenu.ShowMainMenu();
+            ShowMenu();
             
         }
         public void ShowCoffeMenu()
@@ -91,7 +91,7 @@ class AddMenu
                 Thread.Sleep(1000);
             }
             Console.Clear(); 
-            MainMenu.ShowMainMenu();
+            ShowMenu();
         }
         public void ShowMilkMenu()
         {
@@ -112,13 +112,14 @@ class AddMenu
                 Thread.Sleep(1000);
             }
             Console.Clear(); 
-            MainMenu.ShowMainMenu();
+            ShowMenu();
         }
         public void ShowIngregient()
         {
             Console.WriteLine($"Воды: {RealWater}/{maxWater}");
             Console.WriteLine($"Коффе: {RealCoffe}/{maxCoffe}");
             Console.WriteLine($"Молоко: {realMilk}/{maxMilk}");
+            Console.ReadKey();
         }
     }
     

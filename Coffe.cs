@@ -78,11 +78,11 @@ class Coffe
                 Console.WriteLine($"Недостаточно ингредиентов для приготовления {coffeType}.");
             }
         }
-        private static bool CheckIngredient(int requiredWater, int requiredCoffe, int requiredMilk)
+        public static bool CheckIngredient(int requiredWater, int requiredCoffe, int requiredMilk)
         {
             return AddMenu.RealWater >= requiredWater && AddMenu.RealCoffe >= requiredCoffe && AddMenu.RealMilk >= requiredMilk;
         }
-        private static void PrepairCoffe(int requiredWater, int requiredCoffe, int requiredMilk)
+        public static void PrepairCoffe(int requiredWater, int requiredCoffe, int requiredMilk)
         {
             CheckAndClear.CookingCoffe();
             AddMenu.RealWater -= requiredWater;
