@@ -6,16 +6,20 @@ class CheckAndClear
     {
         Console.WriteLine($"Загрязненно на: {Dirty}");
         Console.WriteLine("Почистить ?\n 1. Да\n 2. Нет");
-        int result =  int.Parse(Console.ReadLine());
+
+        int result = MainMenu.GetUserChoice();
         switch (result)
         {
             case 1:
+                Console.Clear();
                 ClearDirty();
             break;
-            default:
+            case 2:
+                Console.Clear();
                 MainMenu.ShowMainMenu();
             break;
         }
+        
     }
     public static void CheckDirty()
     {
