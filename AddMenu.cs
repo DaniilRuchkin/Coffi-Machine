@@ -14,12 +14,21 @@ class AddMenu
         
         public void ShowMenu()
         {
-            Console.WriteLine("1. Добавить воды");
-            Console.WriteLine("2. Добавить кофе");
-            Console.WriteLine("3. Добавить молоко");
-            Console.WriteLine("4. Назад");
+            string[] menuOptions =
+            {
+                "1. Добавить воды",
+                "2. Добавить кофе",
+                "3. Добавить молоко",
+                "4. Назад",
+            };
+
+            Console.WriteLine("Меню:");
+            foreach (string option in menuOptions)
+            {
+                Console.WriteLine(option);
+            }
+            int result = MainMenu.GetUserChoice();
             
-            int result =  int.Parse(Console.ReadLine());
             switch (result)
             {
                 case 1:
@@ -45,7 +54,7 @@ class AddMenu
         {
             Console.WriteLine($"Воды: {RealWater}/{maxWater}");
             Console.Write("Налить воды:....");
-            int result = int.Parse(Console.ReadLine());
+            int result = MainMenu.GetUserChoice();
             AddWater(result);
         }
         public void AddWater(int water)
@@ -53,23 +62,21 @@ class AddMenu
             if (RealWater <= maxWater && RealWater+water <= maxWater)
             {
                 RealWater += water;
-                Console.Clear();
-                MainMenu.ShowMainMenu();
             }
             else
             {
-                Console.WriteLine("Перелив воды");
+                Console.WriteLine("Перелив воды! Невозможно добавить больше.");
                 Thread.Sleep(1000);
-                Console.Clear();
-                MainMenu.ShowMainMenu();
             }
+            Console.Clear(); 
+            MainMenu.ShowMainMenu();
             
         }
         public void ShowCoffeMenu()
         {
             Console.WriteLine($"Коффе: {RealCoffe}/{maxCoffe}");
             Console.Write("Положить коффе....");
-            int result = int.Parse(Console.ReadLine());
+            int result = MainMenu.GetUserChoice();
             AddCoffe(result);
         }
         public void AddCoffe(int coffe)
@@ -77,22 +84,20 @@ class AddMenu
             if(RealCoffe <= maxCoffe && RealCoffe+coffe <= maxCoffe)
             {
                 RealCoffe+=coffe;
-                Console.Clear();
-                MainMenu.ShowMainMenu();
             }
             else
             {
-                Console.WriteLine("Много коффе");
+                Console.WriteLine("Много коффе! Невозможно добавить больше.");
                 Thread.Sleep(1000);
-                Console.Clear();
-                MainMenu.ShowMainMenu();
             }
+            Console.Clear(); 
+            MainMenu.ShowMainMenu();
         }
         public void ShowMilkMenu()
         {
             Console.WriteLine($"Молоко: {realMilk}/{maxMilk}");
             Console.Write("Налить молоко....");
-            int result = int.Parse(Console.ReadLine());
+            int result = MainMenu.GetUserChoice();
             AddMilk(result);
         }
         public void AddMilk(int milk)
@@ -100,16 +105,14 @@ class AddMenu
             if (RealMilk <= maxMilk && RealMilk+milk <= maxMilk)
             {
                 IngredientManager.AddIngredient(ref realMilk, maxMilk, milk);
-                Console.Clear();
-                MainMenu.ShowMainMenu();
             }
             else
             {
-                Console.WriteLine("Много молока");
+                Console.WriteLine("Много молока! Невозможно добавить больше.");
                 Thread.Sleep(1000);
-                Console.Clear();
-                MainMenu.ShowMainMenu();
             }
+            Console.Clear(); 
+            MainMenu.ShowMainMenu();
         }
         public void ShowIngregient()
         {
