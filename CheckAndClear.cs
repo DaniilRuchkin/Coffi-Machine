@@ -1,6 +1,6 @@
 class CheckAndClear
 {
-    public static int Dirty { get ;set; }
+    public static int Dirty { get; set; }
 
     public static void ShowDirty()
     {
@@ -13,42 +13,44 @@ class CheckAndClear
             case 1:
                 Console.Clear();
                 ClearDirty();
-            break;
+                break;
             case 2:
                 Console.Clear();
                 MainMenu.ShowMainMenu();
-            break;
+                break;
         }
-        
+
     }
     public static void CheckDirty()
     {
-        if(Dirty >= 3)
+        if (Dirty >= 3)
         {
             ShowDirty();
         }
     }
     public static void ClearDirty()
     {
-        if(Dirty == 0)
+        if (Dirty == 0)
         {
             Console.WriteLine("Чистить не надо, и так чисто");
+            Console.ReadKey();
+            Console.Clear();
         }
         else
         {
             Dirty = 0;
         }
-        
+
     }
     public static void CookingCoffe()
     {
         if (Dirty < 3)
         {
-            Dirty+=1;
+            Dirty += 1;
         }
         else
         {
             ShowDirty();
         }
     }
-}   
+}
