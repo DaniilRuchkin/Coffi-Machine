@@ -1,8 +1,8 @@
 class AddMenu
 {
     public static int RealWater  { get; set; } = 900;
-    public static int RealCoffe { get; set; }
-    public static int realMilk;
+    public static int RealCoffe { get; set; } = 150;
+    public static int realMilk = 300;
     public static int RealMilk
     {
         get { return realMilk; }
@@ -11,12 +11,7 @@ class AddMenu
     const int maxWater = 900;
     const int maxCoffe = 150;
     const int maxMilk = 300;
-    public AddMenu()
-    {
-        // RealWater = 900;
-        RealCoffe = 150;
-        RealMilk = 300;
-    }
+    
     public void ShowMenu()
     {
         string[] menuOptions =
